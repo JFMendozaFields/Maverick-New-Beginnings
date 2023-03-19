@@ -2,6 +2,9 @@ import discord
 import requests
 from graphqlclient import GraphQLClient
 import ssl
+import os
+
+token = os.environ.get("TOKEN")
 ssl._create_default_https_context = ssl._create_unverified_context
 
 intents = discord.Intents.all()
@@ -56,4 +59,4 @@ async def on_message(message):
             await message.channel.send(f"Request failed with status code {response.status_code}")
             
 
-client.run('MTA4Njc4MDU5NTUwMzM3NDQzOA.Gb6cZE.0G4HeRkoAqM4KtePjb89ig4SYpmgugK12vRGBA')
+client.run(token)
